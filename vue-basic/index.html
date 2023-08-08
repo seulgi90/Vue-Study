@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰 기초 익히기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        {{ name }} {{ age }} <br> 
+        {{ person.name }} {{ person.age }} <br> <br>
+        {{ nextYear() }} <br> 
+        {{ nextYear2('안녕하세요') }} <br> <br>
+
+        {{ otherMethod() }} <br> <br>
+
+        <input type="text" value="hello"><br>
+        <input type="text" value="inputData"><br>
+        <input type="text" v-bind:value="inputData"><br>
+        <input type="text" :value="inputData2"><br>
+
+        <input v-bind:type="type" value="1234"><br>
+        <input :type="type" value="1234"><br>
+
+        <a :href="link">유튜브 이동</a><br>
+        <a :href="getChannel('/@kossiecoder')">유튜브 코지코더 채널로 이동</a> <br>
+
+        <button onclick="alert('hello')">Click Me</button>
+
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name: '펭수',
+                age: 34,
+
+                person: { // Object
+
+                    name: '라이언',
+                    age: 35
+                },
+                
+                inputData: 'hello',
+                inputData2: 'v-bind 삭제',
+                type: 'number',
+                link: 'https://www.youtube.com'
+                
+            },
+            
+            methods: { // 원하는 함수 사용
+                nextYear: function() {
+                    return this.person.name + '는 내년에' + (this.person.age + 1) + '살 입니다'; // this = data에 있는 것들을 this로 넣어준다
+                },
+
+                nextYear2: function(greeting) { // 매개변수를 받는 함수
+                    return greeting + '!' + this.person.name + '는 내년에' + (this.person.age + 1) + '살 입니다'; // this = data에 있는 것들을 this로 넣어준다
+                },
+                
+                otherMethod: function() { // 함수 호출도 가능
+                    return this.nextYear();
+                },
+
+                getChannel(channel) {
+                    return this.link + channel;
+                }
+            }
+            
+        })
+    </script>
+</body>
+</html>

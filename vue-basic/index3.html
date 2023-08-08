@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰 기초 익히기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <form v-on:submit.prevent="submit">
+            <!-- v-on: => @ 로 대체 가능( v-on:keyup =>  @keyup) -->
+            <!-- <input type="text" :value="text" @keyup="updateText"> <br>  -->
+
+            <!-- 양 방향 바이딩 필요 시: v-model 사용 : updateText() 함수를 만들 필요가 없어짐  -->
+            <input type="text" v-model="text"> <br> 
+            {{ text }} <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                year: 2018,
+                text: 'text'
+
+            },
+            methods: {
+                alert() {
+                    alert('hello');
+                },
+
+                plus() {
+                    this.year++;
+                },
+
+                minus() {
+                    this.year--;
+                },
+
+                submit() {
+                    alert('submitted');
+                    console.log('hello');
+                },
+
+                // updateText(event) { // @keyup 에서 자동으로 event 를 넣어준다
+                //     console.log(event);
+                //     this.text = event.target.value;
+                // }
+            }
+            
+        })
+    </script>
+</body>
+</html>

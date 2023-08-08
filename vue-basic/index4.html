@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰 기초 익히기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        {{ reversedMessage }} <br>
+        {{ reversedMessage2() }} 
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: '안녕하세요'
+            },
+            methods: {  
+                reversedMessage2() {
+                    return this.message.split('').reverse().join('')
+                }
+
+            },
+
+            computed: { // data에 있는 오브젝트를 쓰는것처럼 '()'없이 변수명처럼 사용하면된다 :  {{ reversedMessage }}
+                reversedMessage() {
+                    return this.message.split('').reverse().join('') // computed 이 시점에 계산되어져있다  <-> methods는 reversedMessage2()가 호출되었을때 계산되어 진다 
+                }
+            }
+            
+        })
+    </script>
+</body>
+</html>
