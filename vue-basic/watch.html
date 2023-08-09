@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰 기초 익히기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        {{ message }} <br>
+        <button @click="changeMessage">Click</button> <br>
+        {{ updated }}
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: '헬로우',
+                updated: '아니요'
+
+            },
+            methods: {  
+                changeMessage() {
+                    return this.message = '안녕하세요';
+                }
+
+            },
+
+            computed: { 
+                reversedMessage() {
+                    return this.message.split('').reverse().join('') 
+                }
+            },
+
+            watch: {
+                message(newVal, oldVal) { // 콜백은 감시되는 프로퍼티에 새 값이 할당되었을 때만 트리거되며 중첩된 프로퍼티 변경에는 트리거되지 않는다
+                    console.log(newVal, oldVal);
+                    this.updated = '네';
+                }
+            }
+            
+        })
+    </script>
+</body>
+</html>

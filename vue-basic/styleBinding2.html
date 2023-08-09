@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰 기초 익히기</title>
+
+    <style>
+        .red { 
+            color: blue;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+
+        <div :class="objectStyle">object class-styleBinding</div> <br>
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+
+            data: {
+
+                objectStyle: { // objectStyle 는 객체이고, 
+                    'red': true //  'red'은 <style>안에 있는 클래스명
+                }
+            }
+        })
+    </script>
+</body>
+</html>

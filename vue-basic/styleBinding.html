@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰 기초 익히기</title>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <div class="red bold">Hello</div> <br>
+        <div :class="{ red: isRed, bold: isBold }">Hello ( v-bind:class -> :class 로 표현가능)</div>
+        <button @click="update">Click</button> <br>
+
+        <div :style="{ color: green, fontSize: size }">styleBinding, font-size -> fontSize 표기해야한다</div> <br>
+
+        <div :class="objectStyle">object class-styleBinding</div> <br>
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+
+            data: {
+                isRed: false,
+                isBold: false,
+                green: 'green',
+                size: '30px',
+
+                objectStyle: {
+                    'red': true // objectStyle 는 객체이고, 'red'은 클래스명
+                }
+            },
+
+            methods: {  
+                update() {
+                    this.isRed = !this.isRed;
+                    this.isBold = !this.isBold;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

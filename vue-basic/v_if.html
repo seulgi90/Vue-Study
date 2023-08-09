@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰 기초 익히기</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+       <div v-if="show">Yes</div> 
+       <div v-else>No</div> 
+       <button @click="toggleShow">Toggle</button> <br>
+
+       <template v-if="show2">
+        <div>여러개 숨기기</div>
+        <div>template 활용</div> 
+       </template>
+       <div v-else>숨기기 성공</div> 
+       <button @click="toggleShow2">Toggle</button> <br>
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+
+            data: {
+                show: true,
+                show2: true
+            },
+
+            methods: {
+                toggleShow() {
+                    this.show = !this.show;
+                },
+
+                toggleShow2() {
+                    this.show2 = !this.show2;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

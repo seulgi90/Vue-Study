@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰 기초 익히기</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+
+       <div v-show="show">Yes</div> 
+       <br>
+       <button @click="toggle">Toggle</button>
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+
+            data: {
+                number: 1,
+                show: false
+            },
+
+            methods: {
+                toggle() {
+                    this.show = !this.show;
+                }
+            }
+
+            // v-if의 경우 조건이 맞지 않으면 -> 렌더링이 되지않는다(조건이 참이 될 때까지) +  화면에 보이지 않는다
+            // v-show의 경우 조건이 맞지 않으면 -> 렌더링이 된다(초기 조건에 관계 없이 항상 렌더링 됨) + 화면에 보이지 않는다 
+            // 자주 바뀌는 경우 v-show 권장
+            // 런타임 시 조건이 바뀌지 않으면 v-if 권장
+        })
+    </script>
+</body>
+</html>
