@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>끝말잇기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <word-relay2 startWord="뷰 공부" />
+        <hr>
+        <word-relay2 startWord="기본 강의" />
+        <hr>
+        <word-relay2 startWord="심화 강의" />
+    </div>
+</body>
+<script>
+
+    Vue.component('word-relay2', { // 중복되는 것들을 컴포넌트 화 (데이터를 공유하는 것은 아니다, 컴포넌트 별로 데이터가 따로 논다!)
+        // template의 형제태그들은 항상 부모태그 감싸줘야 한다
+        template: `
+            <div>
+                <div>{{ word }}</div>
+                
+                <form v-on:submit="onSubmitForm">
+                    <input type="text" ref="focusInputbox" v-model="inputValue">
+                    <button type="submit">입력</button>
+                </form>
+
+                <div>{{ result }}</div>
+            </div>
+        `,
+        props: ['startWord'],
+        data() { // Vue.component 에서 data는 함수형태로 만들어 주어야 한다
+            return {
+                word: this.startWord,
+                inputValue: '',
+                result: ''
+            }
+        },
+
+        methods: {
+            onSubmitForm(e) {
+                e.preventDefault();
+                if ( this.word[this.word.length - 1] === this.inputValue[0]) {
+                    this.result = '딩동댕';
+                    this.word = this.inputValue;
+                    this.inputValue = '';
+                    this.$refs.focusInputbox.focus();
+                } else {
+                    this.result = '떙땡떙';
+                    this.inputValue = '';
+                    this.$refs.focusInputbox.focus();
+                }
+            }
+
+        }
+
+    })
+</script>
+
+<script>
+    const app = new Vue({
+        el: '#root'
+    });
+</script>
+</html>

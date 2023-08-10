@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>끝말잇기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+
+        <div>{{ word }}</div>
+        
+        <form v-on:submit="onSubmitForm">
+            <input type="text" ref="focusInputbox" v-model="inputValue">
+            <button type="submit">입력</button>
+        </form>
+
+        <div>{{ result }}</div>
+        
+    </div>
+</body>
+<script>
+    const app = new Vue({ //태그를 작성하고 바뀌는 부분을 생각해서 data, methods 등을 작성하라!
+        el: '#root',
+
+        data: { 
+            word: '뷰 공부',
+            inputValue: '',
+            result: ''
+        },
+        
+        methods: {
+            onSubmitForm(e) {
+                e.preventDefault();
+                if ( this.word[this.word.length - 1] === this.inputValue[0]) { // 끝말잇기
+                    this.result = '딩동댕';
+                    this.word = this.inputValue;
+                    this.inputValue = '';
+                    this.$refs.focusInputbox.focus();
+                } else {
+                    this.result = '떙땡떙';
+                    this.inputValue = '';
+                    this.$refs.focusInputbox.focus();
+                }
+            }
+        }
+    });
+</script>
+</html>

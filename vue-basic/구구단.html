@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <p>{{ first }} 더하기 {{ second }} 는? {{ first + second }} </p>
+        <p>{{ first }} 곱하기 {{ second }} 는?</p>
+        <form v-on:submit="onSubmitForm">
+            <input type="number" ref="answer" v-model="inputValue">
+            <button type="submit">입력</button>
+        </form>
+        <div id="result">{{ result }}</div>
+    </div>
+</body>
+<script>
+    const app = new Vue({
+        el: '#root',
+
+        data: { 
+            first: Math.ceil(Math.random() * 9),
+            second: Math.ceil(Math.random() * 9),
+            inputValue: '', // v-model="inputValue" 데이터 양방향 연결, input창에 입력한 데이터를 data안의 inputValue 값으로 변경
+            result: ''
+        },
+        
+        methods: {
+            onSubmitForm(e) {
+                e.preventDefault(); // 페이지 새로고침 방지
+              if (this.first * this.second === parseInt(this.inputValue)) {
+                this.result = '정답';
+                this.first = Math.ceil(Math.random() * 9);
+                this.second = Math.ceil(Math.random() * 9);
+                this.inputValue = '';
+                this.$refs.answer.focus(); // refs 의 남용은 좋지 않다
+              } else {
+                this.result = '땡~!';
+                this.inputValue = '';
+                this.$refs.answer.focus();
+              }
+            }
+           
+        }
+    });
+</script>
+</html>
