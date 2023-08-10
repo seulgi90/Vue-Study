@@ -20,8 +20,8 @@ export default {
 
     methods: {
         updateName(e) {
-            console.log(e.tartget.value);
-            this.$emit('update-name',e.tartget.value) // this.$emit('이벤트 명', 변경할 값)  : 부모컴포넌트로 값을 보낼 때 사용
+            console.log(e.target.value);
+            this.$emit('update-name',e.target.value) // this.$emit('이벤트 명', 변경할 값)  : 부모컴포넌트(SendData)로 값을 보낼 때 사용
         }
     }
 }
