@@ -49,7 +49,7 @@ export default {
   methods: {
     onSubmitForm() {
       if (this.inputValue === this.answer.join('')) {
-        // 문자열과 배열 비교시 join() 사용
+        // join() : 배열의 모든 요소를 문자열로 결합한 후 비교
         this.tries.push({
           try: this.inputValue,
           result: '홈런',
@@ -76,7 +76,8 @@ export default {
         for (let i = 0; i < 4; i++) {
           if (answerArray[i] === this.answer[i]) {
             strike++;
-          } else if (this.answer.includes(answerArray[i])) {
+          } else if (this.answer.includes(answerArray[i])) { 
+            // includes(): 주어진 문자열이 다른 문자열에 포함되어 있는지 여부를 불리언 값으로 반환
             ball++;
           }
         }
