@@ -1,12 +1,15 @@
 <template>
   <tr>
-    <TdComponent 
+    <td-component 
       v-for="(cellData, index) in rowData" 
       :key="index" 
-      :cell-data="cellData" 
       :cell-index="index" 
       :row-index="rowIndex" 
-    />
+    >
+      <!-- 
+        vuex에서 직접 넘겨 받는 것으로 변경
+        :cell-data="cellData"  -->
+    </td-component>
   </tr>
 </template>
 
@@ -24,8 +27,14 @@ export default {
     }
   },
 
+  computed: {
+    rowData() {
+      return this.$store.state.tableData[this.rowIndex];
+    }
+  },
+
   props: {
-    rowData: Array,
+    // rowData: Array, // vuex에서 바로 데이터 받아오는 것으로 변경 
     rowIndex: Number
   }
 }

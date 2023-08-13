@@ -15,17 +15,29 @@ export default {
   components: {
     TableComponent
   },
-  data() {
-    return {
-      tableData: [ 
-        ['','',''],
-        ['','',''],
-        ['','','']
 
-      ],
-      turn: 'O',
-    };
+  computed: {
+    winner() {
+      return this.$store.state.winner;
+    },
+
+    turn() {
+      return this.$store.state.turn;
+    }
   },
+
+  // data() {
+  //   return {
+  //     tableData: [ 
+  //       ['','',''],
+  //       ['','',''],
+  //       ['','','']
+
+  //     ],
+  //     turn: 'O',
+  //     winner: '',
+  //   };
+  // },
 
   methods: {
     // onChangeData() {

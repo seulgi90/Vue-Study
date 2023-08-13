@@ -17,9 +17,16 @@ export default {
   components: {
     TrComponent,
   },
-  props: {
-    tableData: Array,
+
+  computed: {
+    tableData() {
+      return this.$store.state.tableData;
+    }
   },
+  // vuex에서 data를 받는 것으로 변경 ->  computed
+  // props: {
+  //   tableData: Array,
+  // },
 };
 </script>
 

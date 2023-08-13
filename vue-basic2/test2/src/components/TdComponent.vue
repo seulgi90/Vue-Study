@@ -8,12 +8,16 @@ import { CLICK_CELL, SET_WINNER, RESET_GAME } from './store'; // store.js에서 
 export default {
 
   props: {
-    cellData: String,
+    // cellData: String, // vuex에서 바로 받아오는 것으로 변경
     cellIndex: Number,
     rowIndex: Number
   },
 
   computed: { // vuex의 state data 가져오기
+    cellData() {
+      return this.$store.tableData[this.rowIndex][this.cellIndex];
+    },
+
     tableData() {
       return this.$store.state.tableData;
     },
