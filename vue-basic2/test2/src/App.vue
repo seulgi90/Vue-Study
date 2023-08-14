@@ -6,7 +6,8 @@
       <router-link to="/response">ResponseCheck</router-link> |
       <router-link to="/rockSissorsPaper">RockSissorsPaper</router-link> |
       <router-link to="/lotto">LottoPage</router-link> |
-      <router-link to="/tictactoe">TicTacToe</router-link> |
+      <!-- <router-link to="/tictactoe">TicTacToe</router-link> | -->
+      <router-link to="/mine">MineSweeper</router-link> |
     </nav>
     <router-view/>
   </div>

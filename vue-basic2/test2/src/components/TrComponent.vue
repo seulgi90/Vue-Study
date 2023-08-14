@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <tr>
     <td-component 
       v-for="(cellData, index) in rowData" 
@@ -6,9 +6,8 @@
       :cell-index="index" 
       :row-index="rowIndex" 
     >
-      <!-- 
         vuex에서 직접 넘겨 받는 것으로 변경
-        :cell-data="cellData"  -->
+        :cell-data="cellData"
     </td-component>
   </tr>
 </template>
@@ -38,7 +37,7 @@ export default {
     rowIndex: Number
   }
 }
-</script>
+</script> -->
 
 <style>
 

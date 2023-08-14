@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <table>
     <tr-component
       v-for="(rowData, index) in tableData"
@@ -21,6 +21,10 @@ export default {
   computed: {
     tableData() {
       return this.$store.state.tableData;
+    },
+
+    turnMessage() { // ...mapGetters : ...mapState 처럼 사용 가능 (참고)
+      return this.$store.$getters.turnMessage;
     }
   },
   // vuex에서 data를 받는 것으로 변경 ->  computed
@@ -28,8 +32,4 @@ export default {
   //   tableData: Array,
   // },
 };
-</script>
-
-<style>
-
-</style>
+</script> -->

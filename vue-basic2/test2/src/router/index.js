@@ -5,6 +5,7 @@ import ResponseCheck from '../view/ResponseCheckPage.vue'
 import RockSissorsPaper from '../view/RockSissorsPaperPage.vue'
 import LottoPage from '../view/LottoPage.vue'
 import TicTacToe from '../view/TicTacToe.vue'
+import MineSweeper from '../view/MineSweeper.vue'
 
 Vue.use(VueRouter)
 
@@ -41,7 +42,12 @@ const routes = [
     path: '/tictactoe',
     name: '2차원 배열',
     component: TicTacToe
-  }
+  },
+  {
+    path: '/mine',
+    name: '지뢰 찾기',
+    component: MineSweeper
+  },
 
 ]
 

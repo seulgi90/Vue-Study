@@ -17,6 +17,7 @@
       <template v-slot:body>
         <p>슬롯별 template를 만들고 컴포넌트에서 지정한 slot의 name값을 넣어준다</p>
         <p>v-slot:name값 </p>
+        
       </template>
 
       <template v-slot:footer>
