@@ -1,6 +1,6 @@
 module.exports = {
     singleQuote: true,
-    // 문자열은 singleQuote로 ("" -> '')
+    // 문자열은 singleQuote 으로 ("" -> '')
     semi: false,
     // 세미콜론 사용 안함
     tabWidth: 4,

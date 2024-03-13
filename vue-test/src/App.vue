@@ -1,26 +1,25 @@
 <template>
-<div id="nav">
-    <router-link to="/hello">[HelloWorld]</router-link>
-  <br>
-    <router-link to="/test">[TestRouter]</router-link>
-</div>
-  <router-view />
-  
+    <div id="nav">
+        <router-link to="/hello">[HelloWorld]</router-link> |
+        <router-link to="/testcom">[TestCom api]</router-link> |
+        <router-link to="/testop">[TestOp api]</router-link>
+    </div>
+    <router-view />
 </template>
 
 <script>
 export default {
-  name: 'App'
+    name: 'App',
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
 }
 </style>
