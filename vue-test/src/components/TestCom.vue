@@ -1,15 +1,13 @@
 <template>
-    <div>
-        <!--        <p>{{ message }}</p>-->
-        <!--        <p>{{ message2 }}</p>-->
-        <p>name : {{ name }}</p>
-        <!-- store의 state -->
-        <p>state_count : {{ count }}</p>
-        <!-- store의 getter -->
-        <p>getters_doubleCount : {{ doubleCount }}</p>
-        <!-- store의 actions -->
-        <button @click="increment">Click!!!</button>
-    </div>
+  <div>
+    <p>name : {{ name }}</p>
+    <!-- store의 state -->
+    <p>state_count : {{ count }}</p>
+    <!-- store의 getter -->
+    <p>getters_doubleCount : {{ doubleCount }}</p>
+    <!-- store의 actions -->
+    <button @click="increment">Click!!!</button>
+  </div>
 </template>
 
 <!-- storeToRefs()를 사용하여 반응형 상태를 생성 -->
