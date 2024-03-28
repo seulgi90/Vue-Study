@@ -10,8 +10,11 @@
         <small class="price text-body-secondary">
           {{ lib.getNumberFormatted(item.price) }}원
         </small>
-        <small class="discount text-body-secondary">
+        <small class="discount badge bg-danger">
           {{ item.discountPer }}%
+        </small>
+        <small class="real text-danger">
+          {{ lib.getNumberFormatted(item.price -(item.price * item.discountPer /100 )) }}%
         </small>
       </div>
     </div>
