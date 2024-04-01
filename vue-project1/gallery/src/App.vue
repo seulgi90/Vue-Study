@@ -7,15 +7,32 @@
 <script setup>
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
+import axios from 'axios'
 import { useUserStore } from '@/stores/user'
-
-const id = sessionStorage.getItem('id')
+import { useRoute } from 'vue-router'
+import { watch } from 'vue'
 
 const { setAccount } = useUserStore()
 
-if (id) {
-  setAccount(id)
+const check = () => {
+  axios.get('/api/account/check').then(({ data }) => {
+    console.log('data=>', data)
+    setAccount(data || 0)
+  })
 }
+
+const route = useRoute() // url 정보를 가지고 온다
+watch(route, () => {
+  // 경로가 변경 될 때마다 감시
+  check()
+})
+
+// 개발자 도구에서 수정 가능하기때문에 위와 같이 방식 변경
+// const id = sessionStorage.getItem('id')
+//
+// if (id) {
+//   setAccount(id)
+// }
 </script>
 
 <style>
