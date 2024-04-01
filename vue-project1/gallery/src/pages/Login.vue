@@ -6,7 +6,7 @@
         type="email"
         class="form-control"
         id="floatingInput"
-        v-model="state.form.email"
+        v-model="userId"
       />
       <label for="floatingInput">Email address</label>
     </div>
@@ -15,7 +15,7 @@
         type="password"
         class="form-control"
         id="floatingPassword"
-        v-model="state.form.password"
+        v-model="userPw"
       />
       <label for="floatingPassword">Password</label>
     </div>
@@ -31,36 +31,40 @@
         Remember me
       </label>
     </div>
-    <button class="btn btn-primary w-100 py-2" @click="submit()">
+    <button class="btn btn-primary w-100 py-2" @click="userLogin">
       Sign in
     </button>
     <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
   </div>
 </template>
 
-<script>
-import { reactive } from 'vue'
+<script setup>
+import router from '@/router'
 import axios from 'axios'
-import store from '@/scripts/store'
+import { ref } from 'vue'
+import { useUserStore } from '@/stores/user'
 
-export default {
-  setup() {
-    const state = reactive({
-      form: {
-        email: '',
-        password: '',
-      },
+const userId = ref('')
+const userPw = ref('')
+
+const store = useUserStore()
+const { setAccount } = store
+
+function userLogin() {
+  axios
+    .post('/api/account/login', {
+      email: userId.value,
+      password: userPw.value,
     })
-
-    const submit = () => {
-      axios.post('/api/account/login', state.form).then(res => {
-        store.commit('setAccount', res.data)
-        alert('로그인 성공')
-      })
-    }
-
-    return { state, submit }
-  },
+    .then(res => {
+      setAccount(res.data)
+      sessionStorage.setItem('id', res.data)
+      alert('로그인 성공')
+      router.push('/')
+    })
+    .catch(() => {
+      alert('로그인 실패')
+    })
 }
 </script>
 

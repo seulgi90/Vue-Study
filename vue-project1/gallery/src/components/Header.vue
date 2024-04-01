@@ -10,7 +10,13 @@
                 <router-link class="text-white" to="/">메인 화면</router-link>
               </li>
               <li>
-                <router-link class="text-white" to="/login">로그인</router-link>
+                <router-link
+                  class="text-white"
+                  to="/login"
+                  v-if="!store.account.id"
+                  >로그인</router-link
+                >
+                <a class="text-white" @click="logout" v-else>로그아웃</a>
               </li>
             </ul>
           </div>
@@ -56,9 +62,17 @@
   </header>
 </template>
 
-<script>
-export default {
-  name: 'Header',
+<script setup>
+import { useUserStore } from '@/stores/user'
+import router from '@/router'
+
+const store = useUserStore() // 유저 정보
+const { setAccount } = store
+
+const logout = () => {
+  setAccount('')
+  sessionStorage.removeItem('id')
+  router.push('/')
 }
 </script>
 

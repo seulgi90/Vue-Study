@@ -20,7 +20,6 @@ import Card from '@/components/Card.vue'
 export default {
   name: 'Home',
   components: { Card },
-  // components: {Card},
   setup() {
     // reactive 는 object 타입 사용 가능, 함수 가능, 선언한 변수 명으로 사용!
     const state = reactive({

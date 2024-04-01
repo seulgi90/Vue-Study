@@ -4,13 +4,17 @@
   <Footer />
 </template>
 
-<script>
+<script setup>
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
+import { useUserStore } from '@/stores/user'
 
-export default {
-  name: 'App',
-  components: { Footer, Header },
+const id = sessionStorage.getItem('id')
+
+const { setAccount } = useUserStore()
+
+if (id) {
+  setAccount(id)
 }
 </script>
 
