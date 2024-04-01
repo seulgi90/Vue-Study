@@ -1,6 +1,6 @@
 package com.project.gallerybackend.controller;
 
-import com.project.gallerybackend.entity.Item;
+import com.project.gallerybackend.dto.Item;
 import com.project.gallerybackend.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

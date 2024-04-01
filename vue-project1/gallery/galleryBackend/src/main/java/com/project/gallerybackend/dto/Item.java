@@ -1,4 +1,4 @@
-package com.project.gallerybackend.entity;
+package com.project.gallerybackend.dto;
 
 import jakarta.persistence.*;
 import lombok.Getter;

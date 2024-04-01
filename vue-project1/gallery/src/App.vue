@@ -1,18 +1,16 @@
 <template>
   <Header />
-  <Home />
+  <RouterView />
   <Footer />
 </template>
 
 <script>
-
-import Header from "@/components/Header.vue";
-import Footer from "@/components/Footer.vue";
-import Home from "@/pages/Home.vue";
+import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'App',
-  components: {Home, Footer, Header},
+  components: { Footer, Header },
 }
 </script>
 
@@ -34,10 +32,11 @@ export default {
 .b-example-divider {
   width: 100%;
   height: 3rem;
-  background-color: rgba(0, 0, 0, .1);
-  border: solid rgba(0, 0, 0, .15);
+  background-color: rgba(0, 0, 0, 0.1);
+  border: solid rgba(0, 0, 0, 0.15);
   border-width: 1px 0;
-  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+  box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+    inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
 }
 
 .b-example-vr {
@@ -47,7 +46,7 @@ export default {
 }
 
 .bi {
-  vertical-align: -.125em;
+  vertical-align: -0.125em;
   fill: currentColor;
 }
 
