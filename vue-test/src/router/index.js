@@ -5,6 +5,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
 import TestCom from '@/components/TestCom.vue'
 import TestOp from '@/components/TestOp.vue'
 import TestOpSet from '@/components/TestOpSet.vue'
+import TestTable from "@/components/TestTable.vue";
 
 // 라우터 설정
 const routes = [
@@ -12,6 +13,7 @@ const routes = [
   { path: '/testcom', name: 'TestCom', component: TestCom },
   { path: '/testop', name: 'TestOp', component: TestOp },
   { path: '/testopSet', name: 'TestOpSet', component: TestOpSet },
+  { path: '/testTable', name: 'TestTable', component: TestTable },
 ]
 
 // 라우터 생성

@@ -7,6 +7,8 @@
     <router-link to="/testop">[TestOp api]</router-link>
     |
     <router-link to="/testopSet">[TestOpSet api]</router-link>
+    |
+    <router-link to="/testTable">[TestTable]</router-link>
   </div>
   <router-view />
 </template>
