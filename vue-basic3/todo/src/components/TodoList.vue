@@ -1,54 +1,37 @@
 <template>
-    <div class="mb-2"> 
-      <input 
-        type="checkbox" 
-        :checked="todo.checked"
-        @change="toggleCheckbox"
-      >
-      <span 
-        class="ml-3"
-        :class="todo.checked ? 'text-muted' : ''"
-        :style="todo.checked ? 'text-decoration:line-through' : ''"
-      >
-        {{ todo.text }}
-      </span>
-      <button 
-        class="btn btn-danger btn-sm"
-        @click="clickDelete"
-      >
-        Delete
-      </button>
-    </div>
+  <div>
+  <todo-page
+      v-for="todo in todos"
+      :key="todo.id"
+      :todo="todo"
+      @toggle-checkbox="toggleCheckbox"
+      @delete-todo="deleteTodo"
+  />
+  </div>
 </template>
 
 <script>
+import TodoPage from "@/components/TodoPage.vue";
+
 export default {
-
-    props: {
-      todo: {
-        type: Object,
-        required: true
-      }
-  },
-
-  methods: {
-
-    toggleCheckbox(e) {
-      this.$emit('toggle-checkbox', { // $emit 아이다와 체크상태 값을 부모 컴포넌트로 보낸다
-        id: this.todo.id,
-        checked: e.target.checked
-      })
+  name: "TodoList",
+  components: {TodoPage},
+  computed: {
+    todos() {
+      return this.$store.state.todo.todos; // vuex 모듈로 변경 -> this.$store.state.모듈이름.해당 변수
     },
-
-    clickDelete() {
-      this.$emit('click-delete', this.todo.id); // 삭제하고 싶은 아이디 값을 부모 컴포넌트로 보내기
+  },
+  methods: {
+    toggleCheckbox(value) {
+      this.$emit('toggle-checkbox', value)
+    },
+    deleteTodo(todoId) {
+      this.$emit('delete-todo', todoId)
     }
-    
   }
-
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>
